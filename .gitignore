@@ -1,0 +1,45 @@
+# ======================
+# Node Modules
+# ======================
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# ======================
+# Environment Files
+# ======================
+.env
+.env.*
+backend/.env
+frontend/.env
+
+# ======================
+# Build Folders
+# ======================
+dist/
+build/
+frontend/dist/
+backend/dist/
+
+# ======================
+# Logs
+# ======================
+logs
+*.log
+
+# ======================
+# Uploads (if local storage)
+# ======================
+backend/uploads/
+
+# ======================
+# OS Files
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# IDE
+# ======================
+.vscode/
+.idea/
