@@ -12,6 +12,24 @@ export default function CreateTask() {
 
   const token = localStorage.getItem("token");
 
+  const [form, setForm] = useState({
+    title: "",
+    description: "",
+    skills: "",
+    stipend: "",
+    locations: "",
+    experience: "0 years",
+    startDate: "Immediately",
+    applyBy: "",
+    responsibilities: "",
+    eligibility: "",
+    perks: "",
+  });
+
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
   // Check employer verification status
   useEffect(() => {
     const checkVerification = async () => {
@@ -34,6 +52,7 @@ export default function CreateTask() {
     }
   }, [user, token]);
 
+  // Early returns after all hooks are called
   if (!user || user.role !== "employer") {
     return <p className="p-10 text-center">Access denied</p>;
   }
@@ -73,25 +92,6 @@ export default function CreateTask() {
       </div>
     );
   }
-
-  const [form, setForm] = useState({
-    title: "",
-    description: "",
-    skills: "",
-    stipend: "",
-
-    locations: "",
-    experience: "0 years",
-    startDate: "Immediately",
-    applyBy: "",
-    responsibilities: "",
-    eligibility: "",
-    perks: "",
-  });
-
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [submitting, setSubmitting] = useState(false);
 
   const validate = () => {
     if (
