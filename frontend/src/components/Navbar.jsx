@@ -54,7 +54,7 @@ export default function Navbar() {
     } else if (user.role === "employer") {
       // For employers
       return [
-        { label: "Browse Talent", path: "/internships" },
+        { label: "Browse Talent (Internships)", path: "/internships" },
         { label: "My Posts", path: "/employer-dashboard" },
         { label: "Post Internship", path: "/create-task" },
       ];
