@@ -212,12 +212,12 @@ export default function InternshipDashboard() {
                       ))}
                     </div>
                   </div>
-                  <button
-                    onClick={() => handleApplyClick(task._id)}
-                    className="mt-6 w-full bg-gradient-to-r from-[#0a66c2] to-[#004182] hover:from-[#004182] hover:to-[#0a66c2] text-white py-3 rounded-xl font-semibold transition-all duration-300 transform group-hover:scale-[1.02] shadow-md hover:shadow-lg"
-                  >
-                    View details →
-                  </button>
+            <button
+                onClick={() => navigate(`/internship/${task._id}`)}
+                className="mt-6 w-full bg-gradient-to-r from-[#0a66c2] to-[#004182] hover:from-[#004182] hover:to-[#0a66c2] text-white py-3 rounded-xl font-semibold transition-all duration-300 transform group-hover:scale-[1.02] shadow-md hover:shadow-lg"
+              >
+                View details →
+              </button>
                 </div>
               );
             })}
