@@ -256,8 +256,57 @@ const hasApplied =
         />
       )}
 
-      {showLogin && alert("Please login to apply")}
-      {showVerify && alert("Please verify your student profile")}
+      {showLogin && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-6 max-w-md w-full text-center space-y-3">
+            <h3 className="text-xl font-bold text-gray-900">Login Required</h3>
+            <p className="text-gray-600">Please login or register to apply.</p>
+            <div className="flex justify-center gap-3 pt-2">
+              <button
+                onClick={() => (window.location.href = "/login")}
+                className="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700"
+              >
+                Login
+              </button>
+              <button
+                onClick={() => (window.location.href = "/register")}
+                className="border border-gray-200 px-5 py-2 rounded-lg font-semibold hover:bg-gray-50"
+              >
+                Register
+              </button>
+            </div>
+            <button
+              onClick={() => setShowLogin(false)}
+              className="text-sm text-gray-500 hover:text-gray-700"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
+      {showVerify && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-6 max-w-md w-full text-center space-y-3">
+            <h3 className="text-xl font-bold text-gray-900">Verification Required</h3>
+            <p className="text-gray-600">Please verify your student profile to apply.</p>
+            <div className="flex justify-center gap-3 pt-2">
+              <button
+                onClick={() => (window.location.href = "/profile")}
+                className="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700"
+              >
+                Verify Now
+              </button>
+            </div>
+            <button
+              onClick={() => setShowVerify(false)}
+              className="text-sm text-gray-500 hover:text-gray-700"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
