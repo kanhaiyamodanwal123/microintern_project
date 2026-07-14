@@ -152,37 +152,7 @@ export default function InternshipDashboard() {
           </div>
         </div>
 
-        {/* DISCOVER ROLES */}
-        <div className="animate-fade-in-up" style={{ animationDelay: "400ms" }}>
-          <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-gray-100">
-            <div className="text-center space-y-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                Discover internships across popular roles
-              </h2>
-              
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
-                {[
-                  { title: "Full Stack", icon: "💻", color: "bg-blue-100" },
-                  { title: "Data Science", icon: "📊", color: "bg-green-100" },
-                  { title: "Machine Learning", icon: "🤖", color: "bg-purple-100" },
-                  { title: "Cloud Computing", icon: "☁️", color: "bg-cyan-100" },
-                  { title: "Cybersecurity", icon: "🔒", color: "bg-red-100" },
-                  { title: "Product Design", icon: "🎨", color: "bg-pink-100" },
-                ].map((role, i) => (
-                  <div 
-                    key={i} 
-                    className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-all duration-300"
-                  >
-                    <div className={`w-14 h-14 mx-auto mb-4 rounded-2xl ${role.color} flex items-center justify-center text-2xl`}>
-                      {role.icon}
-                    </div>
-                    <h3 className="text-gray-900 font-semibold text-base">{role.title}</h3>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+
 
         {/* INTERNSHIPS */}
         <div className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 rounded-3xl p-6 sm:p-8">

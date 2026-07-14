@@ -38,7 +38,7 @@ const hasApplied =
       a.student?._id === user._id
   );
 
- const applyNow = () => {
+  const applyNow = () => {
   if (!user) return setShowLogin(true);
 
   if (hasApplied) {
@@ -46,6 +46,7 @@ const hasApplied =
     return;
   }
 
+  // If student is not verified, show verify UI but still allow viewing details.
   const verified =
     user.isVerifiedStudent === true ||
     user.verificationStatus === "approved";
@@ -54,6 +55,7 @@ const hasApplied =
 
   setShowApply(true);
 };
+
 
   return (
     <div className="bg-gray-50 min-h-screen pt-20 pb-16">
