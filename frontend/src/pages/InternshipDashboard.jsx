@@ -45,6 +45,7 @@ export default function InternshipDashboard() {
   };
 
   const handleApplyClick = (id) => {
+    // Keep "View details" public, but protect "Apply".
     if (!user) {
       setShowLogin(true);
       return;
