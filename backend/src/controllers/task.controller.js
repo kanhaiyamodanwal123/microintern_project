@@ -414,26 +414,12 @@ export const publicTasks = async (req, res) => {
     // 1. Status is "open" (not started yet)
     // 2. Status is "in_progress" (already accepted someone, but still visible)
     // 3. NOT completed
-    // IMPORTANT:
-    // applyBy is stored as Date in the schema. However, older/real-world data can be:
-    // - missing (undefined)
-    // - null
-    // - invalid string (e.g. "")
-    // - past date
-    // We only exclude tasks when applyBy is a valid date and is in the past.
+    // Public feed:
+    // Keep it simple/robust across legacy data.
+    // Marketplace uses getTasks() (no applyBy filtering), so we mirror that here.
+    // Only hide completed tasks.
     const tasks = await Task.find({
       status: { $ne: "completed" },
-      $or: [
-        // No deadline set (undefined/null)
-        { applyBy: null },
-        { applyBy: { $exists: false } },
-
-        // Deadline is in the future
-        { applyBy: { $gte: now } },
-
-        // Defensive: ignore empty-string legacy values
-        { applyBy: "" }
-      ]
     })
       .populate("employer", "name")
       .sort({ createdAt: -1 }); // Most recent first
